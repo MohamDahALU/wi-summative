@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Frame Finder</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Anime Frame Finder</h1>
+      <p>Upload a screenshot from an anime to find out which show and episode it's from!</p>
+    </header>
+    
+    <main>
+      <div class="upload-container">
+        <div id="drop-area" class="drop-area">
+          <p>Drag & drop your anime screenshot here</p>
+          <p>or</p>
+          <label for="file-input" class="upload-btn">Choose File</label>
+          <input type="file" id="file-input" accept="image/*" hidden>
+          <p class="file-info">No file selected</p>
+        </div>
+        
+        <div id="preview-container" class="preview-container hidden">
+          <h3>Preview</h3>
+          <img id="preview-image" src="/placeholder.svg" alt="Preview">
+          <div class="preview-actions">
+            <button id="change-image-btn" class="secondary-btn">Change Image</button>
+            <button id="search-btn" class="primary-btn">Search Anime</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="loading-container hidden" id="loading-container">
+        <div class="spinner"></div>
+        <p>Searching for your anime...</p>
+      </div>
+    </main>
+    
+    <footer>
+      <p>© 2025 Anime Frame Finder | Made with ❤️ for anime fans</p>
+    </footer>
+  </div>
+  
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

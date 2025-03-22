@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results - Anime Frame Finder</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Anime Frame Finder</h1>
+      <a href="index.html" class="back-btn">← Upload Another Screenshot</a>
+    </header>
+    
+    <main class="results-main">
+      <div class="results-container">
+        <div class="results-header">
+          <h2>Search Results</h2>
+        </div>
+        
+        <div class="results-content">
+          <div class="uploaded-image-container">
+            <h3>Your Screenshot</h3>
+            <img id="uploaded-image" src="#" alt="Uploaded Screenshot">
+          </div>
+          
+          <div class="anime-info">
+            <h3>Anime Information</h3>
+            <div class="info-card">
+              <div class="info-row">
+                <span class="info-label">Title:</span>
+                <span id="anime-title" class="info-value">Loading...</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Episode:</span>
+                <span id="anime-episode" class="info-value">Loading...</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Timestamp:</span>
+                <span id="anime-timestamp" class="info-value">Loading...</span>
+              </div>
+              <!-- <div class="info-row">
+                <span class="info-label">Season:</span>
+                <span id="anime-season" class="info-value">Loading...</span>
+              </div> -->
+              <div class="info-row">
+                <span class="info-label">Confidence:</span>
+                <span id="match-confidence" class="info-value">Loading...</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="clip-container">
+            <h3>Scene Clip</h3>
+            <div class="video-container">
+              <video id="anime-clip" controls>
+                <source src="#" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+          <div class="additional-info">
+            <h3>Synopsis</h3>
+            <p id="anime-synopsis">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <p>© 2025 Anime Frame Finder | Made with ❤️ for anime fans</p>
+    </footer>
+  </div>
+  
+  <script src="api.js"></script>
+  <script src="results.js"></script>
+</body>
+</html>
+
