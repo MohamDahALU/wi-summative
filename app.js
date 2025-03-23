@@ -18,14 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener(eventName, preventDefaults, false)
   })
 
-  // Highlight drop area when item is dragged over it
-  ;["dragenter", "dragover"].forEach((eventName) => {
-    dropArea.addEventListener(eventName, highlight, false)
-  })
-  ;["dragleave", "drop"].forEach((eventName) => {
-    dropArea.addEventListener(eventName, unhighlight, false)
-  })
-
   // Handle dropped files
   dropArea.addEventListener("drop", handleDrop, false)
 
@@ -51,16 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function preventDefaults(e) {
     e.preventDefault()
     e.stopPropagation()
-  }
-
-  // Highlight drop area
-  function highlight() {
-    dropArea.classList.add("active")
-  }
-
-  // Unhighlight drop area
-  function unhighlight() {
-    dropArea.classList.remove("active")
   }
 
   // Handle dropped files
@@ -126,17 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
     loadingContainer.classList.remove("hidden")
 
     // Save the image to localStorage for the results page
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      localStorage.setItem("uploadedImage", e.target.result)
-
-      // // Simulate API call
-      // setTimeout(() => {
-      //   // Redirect to results page
-      //   window.location.href = "results.html"
-      // }, 2000)
-    }
-    reader.readAsDataURL(selectedFile)
+    // const reader = new FileReader()
+    // reader.onload = (e) => {
+    //   localStorage.setItem("uploadedImage", e.target.result)
+    // }
+    // reader.readAsDataURL(selectedFile)
 
     fetch("https://api.trace.moe/search", {
       method: "POST",
@@ -146,8 +122,15 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => data.result[0])
     .then(data => {
+      console.log(data)
+      if (data.similarity < .60) throw data
+
       localStorage.setItem("animeData", JSON.stringify(data))
       window.location.href = "results.html"
+    }).catch(err => {
+      previewContainer.classList.remove("hidden")
+      loadingContainer.classList.add("hidden")
+      resetUpload()
     })
 
   }
