@@ -58,16 +58,16 @@ query ($id: Int) { # Define which variables will be used in the query (id)
     const res = await fetch(url, options)
     const { data: { Media: details } } = await res.json()
 
-    // uploadedImage.src = animeData.image
+    uploadedImage.src = animeData.image
 
-    await fetch(animeData.image)
-      .then(res => {
-        res.blob().then(blob => {
-          const imageUrl = URL.createObjectURL(blob);
-          uploadedImage.src = imageUrl;
-        });
-        // console.log(res.body)
-      })
+    // await fetch(animeData.image)
+    //   .then(res => {
+    //     res.blob().then(blob => {
+    //       const imageUrl = URL.createObjectURL(blob);
+    //       uploadedImage.src = imageUrl;
+    //     });
+    //     // console.log(res.body)
+    //   })
 
     animeTitle.textContent = details.title.english
     animeEpisode.textContent = `Episode ${animeData.episode}`
