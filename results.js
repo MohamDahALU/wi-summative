@@ -11,6 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const banner = document.querySelector(".banner")
 
 
+  const uploadedImageData = localStorage.getItem("uploadedImage")
+  if (!uploadedImageData) {
+    window.location.href = "index.html"
+  } else {
+    uploadedImage.src = uploadedImageData
+  }
+
+
 
   const query = `
 query ($id: Int) { # Define which variables will be used in the query (id)
@@ -57,17 +65,6 @@ query ($id: Int) { # Define which variables will be used in the query (id)
 
     const res = await fetch(url, options)
     const { data: { Media: details } } = await res.json()
-
-    // uploadedImage.src = animeData.image
-
-    await fetch(animeData.image)
-      .then(res => {
-        res.blob().then(blob => {
-          const imageUrl = URL.createObjectURL(blob);
-          uploadedImage.src = imageUrl;
-        });
-        // console.log(res.body)
-      })
 
     animeTitle.textContent = details.title.english
     animeEpisode.textContent = `Episode ${animeData.episode}`

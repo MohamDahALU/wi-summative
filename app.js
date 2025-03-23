@@ -73,6 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return
       }
 
+      // Check if file size exceeds 4MB
+      const maxFileSize = 4 * 1024 * 1024 // 4MB in bytes
+      if (selectedFile.size > maxFileSize) {
+        alert("File size exceeds 4MB. Please use a smaller image.")
+        resetUpload()
+        return
+      }
+
       // Update file info
       fileInfo.textContent = `Selected: ${selectedFile.name}`
 
@@ -108,11 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
     loadingContainer.classList.remove("hidden")
 
     // Save the image to localStorage for the results page
-    // const reader = new FileReader()
-    // reader.onload = (e) => {
-    //   localStorage.setItem("uploadedImage", e.target.result)
-    // }
-    // reader.readAsDataURL(selectedFile)
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      localStorage.setItem("uploadedImage", e.target.result)
+    }
+    reader.readAsDataURL(selectedFile)
 
     fetch("https://api.trace.moe/search", {
       method: "POST",
