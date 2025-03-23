@@ -35,11 +35,11 @@ query ($id: Int) { # Define which variables will be used in the query (id)
     if (!animeData) {
       window.location.href = "index.html"
     }
-    
+
     var variables = {
       id: animeData.anilist
     };
-    
+
     let url = 'https://graphql.anilist.co'
     let options = {
       method: 'POST',
@@ -52,14 +52,23 @@ query ($id: Int) { # Define which variables will be used in the query (id)
         variables: variables
       })
     };
-    
-    
-    
+
+
+
     const res = await fetch(url, options)
     const { data: { Media: details } } = await res.json()
-    
-    uploadedImage.src = animeData.image
-    
+
+    // uploadedImage.src = animeData.image
+
+    await fetch(animeData.image)
+      .then(res => {
+        res.blob().then(blob => {
+          const imageUrl = URL.createObjectURL(blob);
+          uploadedImage.src = imageUrl;
+        });
+        // console.log(res.body)
+      })
+
     animeTitle.textContent = details.title.english
     animeEpisode.textContent = `Episode ${animeData.episode}`
 
