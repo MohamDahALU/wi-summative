@@ -7,7 +7,7 @@ Anime Frame Finder is a web application that allows users to upload a screenshot
 - **Image Upload**: Users can upload an anime screenshot via drag-and-drop or file selection.
 - **Anime Identification**: The app identifies the anime, episode, and timestamp from the uploaded image.
 - **Detailed Information**: Displays detailed information about the anime, including:
-  - Title (English, Romaji, Native)
+  - Title
   - Episode number
   - Timestamp
   - Match confidence
@@ -36,5 +36,10 @@ Anime Frame Finder is a web application that allows users to upload a screenshot
 1. **Clone the Repository**:
 ```bash
 git clone https://github.com/MohamDahALU/wi-summative.git
-cd wi-summative
 ```
+
+2. **Open index.html in the Browser**
+
+3. **Enjoy!**
+
+
