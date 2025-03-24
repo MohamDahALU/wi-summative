@@ -41,7 +41,7 @@ query ($id: Int) { # Define which variables will be used in the query (id)
   async function getAnimeData() {
     const animeData = JSON.parse(localStorage.getItem("animeData"))
     if (!animeData) {
-      window.location.href = "index.html"
+      window.location.href = "/"
     }
 
     var variables = {

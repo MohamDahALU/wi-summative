@@ -134,7 +134,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (data.similarity < .60) throw data
 
       localStorage.setItem("animeData", JSON.stringify(data))
-      window.location.href = "results.html"
+
+      if (window.location.hostname.includes("swiftq")) {
+        window.location.href = "/results"
+      } else {
+        window.location.href = "results.html"
+      }
     }).catch(err => {
       previewContainer.classList.remove("hidden")
       loadingContainer.classList.add("hidden")
@@ -142,5 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
   }
+
+  console.log(window.location.hostname)
 })
 
