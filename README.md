@@ -24,6 +24,11 @@ Anime Frame Finder is a web application that allows users to upload a screenshot
   - [AniList GraphQL API](https://anilist.gitbook.io/anilist-apiv2/) for fetching detailed anime information.
 - **Server**: Nginx (for hosting the application).
 
+## Links
+
+- **Live Site**: [Anime Frame Finder](https://www.swiftq.tech)
+- **Repository**: [GitHub Repository](https://github.com/MohamDahALU/wi-summative)
+
 ## How It Works
 
 1. **Upload Image**: Users upload an anime screenshot.
@@ -34,7 +39,6 @@ Anime Frame Finder is a web application that allows users to upload a screenshot
 ## Setup Instructions
 
 ### Local Setup
-
 1. **Clone the Repository**:
 ```bash
 git clone https://github.com/MohamDahALU/wi-summative.git
@@ -65,6 +69,7 @@ sudo service nginx restart
 
 
 ## How it was deployed
+
 ### For web servers (nginx)
 
 1. Do initial installation and configuration of nginx.
