@@ -33,6 +33,8 @@ Anime Frame Finder is a web application that allows users to upload a screenshot
 
 ## Setup Instructions
 
+### Local Setup
+
 1. **Clone the Repository**:
 ```bash
 git clone https://github.com/MohamDahALU/wi-summative.git
@@ -40,6 +42,51 @@ git clone https://github.com/MohamDahALU/wi-summative.git
 
 2. **Open index.html in the Browser**
 
-3. **Enjoy!**
+### Server Setup
+
+1. **Install nginx**
+```bash
+sudo apt-get update
+sudo apt-get install nginx -y
+```
+
+2. **Clone the repository in /var/www/html/**
+```bash
+cd /var/www/html/ 
+sudo git init
+sudo git remote add origin https://github.com/MohamDahALU/wi-summative.git
+sudo git pull origin main
+```
+
+3. **Restart nginx**
+```bash
+sudo service nginx restart
+```
 
 
+## How it was deployed
+### For web servers (nginx)
+
+1. Do initial installation and configuration of nginx.
+
+2. Move to "/var/www/html/", initialize as git repository, set origin to "https://github.com/MohamDahALU/wi-summative.git", then pull the project from the repository. 
+
+3. Change "/etc/nginx/sites-available/default" to include:
+    ```
+    location /results {
+        try_files $uri /results.html;
+    }
+    ```
+    to handle results route.
+
+4. Restart nginx
+
+### For loader balancer (haproxy)
+
+1. Install haproxy.
+
+2. Add lines to configuration file to handle requests and distribute them to each web server we have.
+
+3. Generate SSL certificate for our domain to allow https connections.
+
+4. Change configuration file to handle https requests, and to redirect http to https.

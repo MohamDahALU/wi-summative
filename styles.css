@@ -383,3 +383,9 @@ footer {
 .additional-info > div {
   grid-column: span 2;
 }
+
+
+.foot-link {
+  color: inherit;
+  padding: 0 2px;
+}

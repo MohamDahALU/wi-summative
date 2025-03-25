@@ -5,7 +5,7 @@ const searchBtn = document.querySelector(".btn-search")
 // console.log(imageForm)
 imageForm.screenshot.addEventListener("change", e => {
 
-  console.log("ran")
+  // console.log("ran")
   const input = imageForm.screenshot
 
   if (input.files && input.files[0]) {
@@ -37,7 +37,7 @@ searchBtn.addEventListener("click", e => {
 })
 
 async function getImgData(data) {
-  console.log("loading")
+  // console.log("loading")
   const res = await fetch("https://api.trace.moe/search", {
     method: "POST",
     body: data,
@@ -46,5 +46,5 @@ async function getImgData(data) {
 
   const json = await res.json()
 
-  console.log(json)
+  // console.log(json)
 }

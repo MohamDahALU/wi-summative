@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => data.result[0])
     .then(data => {
-      console.log(data)
+      // console.log(data)
       if (data.similarity < .60) throw data
 
       localStorage.setItem("animeData", JSON.stringify(data))
@@ -148,6 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  console.log(window.location.hostname)
+  // console.log(window.location.hostname)
 })
 
