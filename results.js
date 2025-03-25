@@ -70,7 +70,7 @@ query ($id: Int) { # Define which variables will be used in the query (id)
     animeEpisode.textContent = `Episode ${animeData.episode}`
 
     let seconds = Math.floor(animeData.from) % 60
-    let minutes = Math.floor(animeData.from / 60)
+    let minutes = (animeData.from / 60).toFixed(2)
     animeTimestamp.textContent = `${minutes}:${seconds}`
     matchConfidence.textContent = `${Math.round(animeData.similarity * 100)}%`
     animeClip.src = animeData.video
