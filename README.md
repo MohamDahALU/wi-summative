@@ -1,6 +1,6 @@
 # Anime Frame Finder
 
-Anime Frame Finder is a web application that allows users to upload a screenshot from an anime and identify the anime, episode, and timestamp from the image. The app uses the [Trace.moe API](https://soruly.github.io/trace.moe-api/) to search for anime data and the [AniList GraphQL API](https://anilist.gitbook.io/anilist-apiv2/) to fetch detailed information about the identified anime.
+Anime Frame Finder is a web application that allows users to upload a screenshot from an anime and identify the anime, episode, and timestamp from the image. The app uses the [Trace.moe API](https://soruly.github.io/trace.moe-api/) to search for anime data and the [AniList GraphQL API](https://anilist.gitbook.io/anilist-apiv2-docs) to fetch detailed information about the identified anime.
 
 ## Table of Contents
 - [Features](#features)
