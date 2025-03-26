@@ -4,7 +4,7 @@ Anime Frame Finder is a web application that allows users to upload a screenshot
 
 ## Table of Contents
 - [Features](#features)
-- [Technologies Used (Credits)](#technologies-used)
+- [Technologies Used](#technologies-used)
 - [Links](#links)
 - [How It Works](#how-it-works)
 - [Development Challenges](#development-challenges)
