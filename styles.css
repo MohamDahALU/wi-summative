@@ -389,3 +389,11 @@ footer {
   color: inherit;
   padding: 0 2px;
 }
+
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: .8rem;
+  font-weight: 600;
+}

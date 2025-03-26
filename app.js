@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const changeImageBtn = document.getElementById("change-image-btn")
   const searchBtn = document.getElementById("search-btn")
   const loadingContainer = document.getElementById("loading-container")
+  const errorEl = document.querySelector(".error")
 
   // Selected file
   let selectedFile = null
@@ -73,8 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return
       }
 
+      // Error Handling
       // Check if file size exceeds 4MB
-      const maxFileSize = 4 * 1024 * 1024 // 4MB in bytes
+      const maxFileSize = 4 * 1024 * 1024
       if (selectedFile.size > maxFileSize) {
         alert("File size exceeds 4MB. Please use a smaller image.")
         resetUpload()
@@ -114,6 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show loading
     previewContainer.classList.add("hidden")
     loadingContainer.classList.remove("hidden")
+    errorEl.classList.add("hidden")
+
 
     // Save the image to localStorage for the results page
     const reader = new FileReader()
@@ -130,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => data.result[0])
     .then(data => {
-      // console.log(data)
+
       if (data.similarity < .60) throw data
 
       localStorage.setItem("animeData", JSON.stringify(data))
@@ -141,8 +145,11 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "results.html"
       }
     }).catch(err => {
+      // Error handling
+      // If there is an error, reverse operation and notify user with error message.
       previewContainer.classList.remove("hidden")
       loadingContainer.classList.add("hidden")
+      errorEl.classList.remove("hidden")
       resetUpload()
     })
 
