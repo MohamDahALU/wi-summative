@@ -128,3 +128,10 @@ One of the main challenges faced during development was handling image uploads a
 - **Handling Different Routes**: The application needed special configuration in Nginx to handle the routing between pages while maintaining state, particularly for the results route.
 
 These challenges led to a more robust implementation using client-side storage techniques to create a seamless user experience despite the stateless nature of the web.
+
+
+
+
+## Acknowledgments
+- [Trace.moe API](https://soruly.github.io/trace.moe-api/) for anime identification.
+- [AniList GraphQL API](https://anilist.gitbook.io/anilist-apiv2-docs) for fetching detailed anime information.
